@@ -72,7 +72,7 @@ body {
     fill: currentColor;
 }
 
-/* Hover color */
+
 .social-icon:hover {
     color: var(--accent-gold);
 }
@@ -204,7 +204,7 @@ body {
     padding: 15px 40px;
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 50px;
 }
 
 .nav a {
@@ -231,37 +231,10 @@ body {
     left: 0;
 }
 
-
-@media (max-width: 768px) {
-    .header {
-        grid-template-columns: 1fr;
-        row-gap: 15px;
-        text-align: center;
-    }
-
-    .search-container,
-    .header-icons {
-        justify-self: center;
-        width: 100%;
-        max-width: 320px;
-    }
-
-    .header-icons {
-        justify-content: center;
-    }
-
-    .nav {
-        flex-wrap: wrap;
-        gap: 15px;
-    }
-}
-
-
-
 .hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    min-height: 600px;
+    height: 100vh;
     position: relative;
     overflow: hidden;
 }
@@ -273,8 +246,9 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 60px;
+    padding: 90px 50px 20px;
     color: white;
+    cursor: pointer;
     animation: kenBurns 20s ease-in-out infinite alternate;
 }
 
@@ -403,13 +377,483 @@ body {
 }
 
 
+
+.section {
+    padding: 80px 40px;
+}
+
+
+.section-heading {
+    text-align: center;
+    font-size: 42px;
+    font-weight: 300;
+    margin-bottom: 0px;
+    transform: translateY(-30px);
+}
+
+.section-heading.visible {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.section-heading em {
+    font-style: italic;
+    font-family: Georgia, serif;
+}
+
+
+.category-pills {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    transform: translateX(20px);
+}
+
+.pill {
+    padding: 10px 25px;
+    border: 2px solid var(--primary-teal);
+    background: transparent;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    transform: translateX(-20px);
+}
+
+.pill.visible {
+    animation: slideInLeft 0.5s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 100;
+        transform: translateX(0);
+    }
+}
+
+.pill.active {
+    background: var(--primary-teal);
+    color: white;
+}
+
+.pill:hover {
+    background: var(--primary-teal);
+    color: white;
+}
+
+
+.pill:nth-child(1) { animation-delay: 0.1s; }
+.pill:nth-child(2) { animation-delay: 0.2s; }
+.pill:nth-child(3) { animation-delay: 0.3s; }
+.pill:nth-child(4) { animation-delay: 0.4s; }
+.pill:nth-child(5) { animation-delay: 0.5s; }
+
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.product-card {
+    background: white;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    transform: translateY(10px);
+}
+
+.product-card.visible {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.product-card:hover {
+    transform: scale(1);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+}
+
+.product-image {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1;
+    background: #f5f5f5;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-name {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.product-price {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.current-price {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary-teal);
+}
+
+.original-price {
+    font-size: 14px;
+    text-decoration: line-through;
+    color: var(--text-light);
+    opacity: 0.6;
+}
+
+.color-swatches {
+    display: flex;
+    gap: 8px;
+}
+
+.swatch {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.swatch:hover {
+    transform: scale(1.2);
+}
+
+.swatch.gold {
+    background: linear-gradient(135deg, #D4AF37, #F4E5B3);
+}
+
+.swatch.silver {
+    background: linear-gradient(135deg, #C0C0C0, #E8E8E8);
+}
+
+.section-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+
+.recently-viewed {
+    background: var(--bg-pink);
+}
+
+.horizontal-scroll {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    padding: 20px 0;
+    scroll-behavior: smooth;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+    height: 6px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-thumb {
+    background: var(--primary-teal);
+    border-radius: 10px;
+}
+
+.scroll-card {
+    min-width: 250px;
+    background:whitesmoke;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.scroll-card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+}
+
+.scroll-card.visible {
+    animation: slideInRight 0.6s ease-out forwards;
+}
+
+.scroll-card:nth-child(1) { animation-delay: 0.1s; }
+.scroll-card:nth-child(2) { animation-delay: 0.25s; }
+.scroll-card:nth-child(3) { animation-delay: 0.4s; }
+.scroll-card:nth-child(4) { animation-delay: 0.55s; }
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+.gift-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.gallery-large {
+    background: url('./images/necklace-one.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 1;
+    background: url('./images/rings.jpg');
+    background-size: cover;
+    transition: all 0.4s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0);
+    transition: background 0.4s ease;
+}
+
+.gallery-item:hover::before {
+    background: rgba(0,0,0,0.2);
+}
+
+.gallery-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-60%);
+    background: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.gallery-btn:hover {
+    background: var(--primary-teal);
+    color: white;
+    border-color: var(--primary-teal);
+    transform: translateX(-50%) translateY(-2px);
+}
+
+
+
+.promo-banners {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    min-height: 500px;
+}
+
+.promo-banner {
+    position: relative;
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+.promo-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    transition: all 0.5s ease;
+    z-index: 1;
+}
+
+.promo-banner:hover::before {
+    background: rgba(0,0,0,0.3);
+}
+
+.promo-banner:hover ~ .promo-banner::before {
+    background: rgba(0,0,0,0.5);
+}
+
+.promo-banner-left {
+    background: url('./images/necklace-3.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.promo-banner-right {
+    background: url('./images/jewel.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.promo-content {
+    position: relative;
+    z-index: 2;
+}
+
+.promo-banner h3 {
+    font-size: 36px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.promo-banner h3 em {
+    font-style: italic;
+    font-family: Georgia, serif;
+}
+
+.promo-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: white;
+    padding: 12px 24px;
+    border: 2px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    text-decoration: none;
+    margin-top: 20px;
+    width: fit-content;
+}
+
+.promo-btn:hover {
+    background: white;
+    color: var(--text-dark);
+}
+
+.nopad{
+    padding: 60px 0px;
+}
+
+.collection-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 15px;
+    padding: 30px 20px;
+}
+
+.collection-card {
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.35s ease;
+    transform: translateY(10px);
+}
+
+.collection-card.visible {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.collection-card:nth-child(1) { animation-delay: 0.1s; }
+.collection-card:nth-child(2) { animation-delay: 0.18s; }
+.collection-card:nth-child(3) { animation-delay: 0.26s; }
+.collection-card:nth-child(4) { animation-delay: 0.34s; }
+.collection-card:nth-child(5) { animation-delay: 0.42s; }
+.collection-card:nth-child(6) { animation-delay: 0.5s; }
+.collection-card:nth-child(7) { animation-delay: 0.58s; }
+
+.collection-card:hover {
+    transform: translateY(-5px);
+}
+
+.collection-image {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    background: #f5f5f5;
+}
+
+.collection-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.35s ease;
+}
+
+.collection-card:hover .collection-image img {
+    transform: scale(1.08);
+}
+
+.collection-card:hover .collection-name {
+    letter-spacing: 0.5px;
+}
+
+.collection-name {
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+
+
+
+
+
 @media (max-width: 1024px) {
     .hero {
         grid-template-columns: 1fr;
     }
+    .promo-banners {
+        grid-template-columns: 1fr;
+    }
+    
+    .collection-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
+
     .hero h2 {
         font-size: 36px;
     }
@@ -422,4 +866,175 @@ body {
         gap: 30px;
         padding: 20px;
     }
+    .section {
+        padding: 60px 20px;
+    }
+    
+    .section-heading {
+        font-size: 32px;
+    }
+    
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .category-pills {
+        gap: 10px;
+        margin-bottom: 30px;
+    }
+    
+    .pill {
+        padding: 8px 20px;
+        font-size: 13px;
+    }
+
+    .hero h2 {
+        font-size: 36px;
+    }
+    
+    .hero-left {
+
+        height: 100vh;
+    }
+    .hero-right{
+        display: none;
+    }
+    .features-strip {
+        gap: 10px;
+        padding: 10px;
+    }
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+    }
+    
+
+    .search-container {
+        display: none;
+    }
+    
+    .logo {
+        justify-self: center;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        
+    }
+    
+
+    .logo h1 {
+        font-size: 22px;
+        letter-spacing: 1.5px;
+    }
+    
+    .brand-mark {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .header-icons {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .header-icons a[aria-label="Account"] {
+        display: none;
+    }
+    
+    .nav {
+        flex-wrap: wrap;
+        gap: 15px;
+        padding: 12px 20px;
+    }
+    .gallery-btn {
+        display: none;
+    }
+
+    .promo-banners {
+        grid-template-columns: 1fr;
+    }
+
+    .promo-banner {
+        padding: 50px 30px;
+        min-height: 350px;
+    }
+
+    .promo-banner h3 {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+
+    .promo-btn {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+
+
+    .collection-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .collection-name {
+        font-size: 14px;
+    }
 }
+
+
+@media (max-width: 480px) {
+    .announcement-bar {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+    
+    .logo h1 {
+        font-size: 22px;
+        letter-spacing: 1px;
+    }
+    
+    .header {
+        padding: 12px 15px;
+        row-gap: 12px;
+    }
+    
+    .search-bar {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+    
+    .nav {
+        gap: 8px;
+        padding: 10px 15px;
+    }
+    
+    .nav a {
+        font-size: 13px;
+    }
+    
+    .hero h2 {
+        font-size: 28px;
+    }
+    
+    .hero p {
+        font-size: 14px;
+    }
+    
+    .header-icons svg {
+        width: 20px;
+        height: 20px;
+    }
+    .collection-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .promo-banner h3 {
+        font-size: 24px;
+    }
+}
+
+
+
