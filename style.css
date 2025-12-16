@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-teal: #2C5F5F;
+    --light-teal: #3A7272;
+    --accent-gold: #D4AF37;
+    --bg-beige: #F5E6D3;
+    --bg-pink: #E8D5D0;
+    --text-dark: #1a1a1a;
+    --text-light: #666;
+    --border-light: #e0e0e0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+
+
+
+.announcement-bar {
+    background: var(--primary-teal);
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    animation: slideDown 0.5s ease-out 0.2s both;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.announcement-text {
+    flex: 1;
+    text-align: center;
+}
+
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+
+.social-icon {
+    color: var(--border-light); /* default */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+/* Hover color */
+.social-icon:hover {
+    color: var(--accent-gold);
+}
+
+
+
+
+
+.header {
+    background: white;
+    padding: 20px 40px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+
+.search-container {
+    justify-self: start;
+    width: 280px;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid var(--border-light);
+    border-radius: 25px;
+    font-size: 14px;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+
+.search-bar:focus {
+    outline: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-color: var(--primary-teal);
+}
+
+
+.logo {
+    justify-self: center;
+    text-align: center;
+    animation: logoPulse 2s ease-out;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.brand-mark {
+    width: 34px;
+    height: 34px;
+    fill: var(--accent-gold);
+    filter: drop-shadow(0 0 0 transparent);
+}
+
+@keyframes logoPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+.logo h1 {
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: #2C5F5F  ;
+}
+
+
+.header-icons {
+    justify-self: end;
+    display: flex;
+    gap: 20px;
+}
+
+
+.header-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-icons svg {
+    width: 22px;
+    height: 22px;
+    stroke: currentColor;
+    fill: none;
+    color: #2C5F5F;
+    transition: 
+        transform 0.3s ease,
+        color 0.3s ease,
+        fill 0.3s ease;
+}
+
+
+.header-icons a:hover svg {
+    color: #D4AF37;
+}
+
+
+.header-icons a[aria-label="Wishlist"]:hover svg {
+    fill: currentColor;
+    transform: scale(1.15);
+}
+
+
+
+.header-icons a[aria-label="Account"]:hover svg {
+    transform: translateY(-3px);
+}
+
+
+
+.header-icons a[aria-label="Cart"]:hover svg {
+    animation: cartShake 0.4s ease;
+}
+
+@keyframes cartShake {
+    0% { transform: rotate(0); }
+    25% { transform: rotate(-6deg); }
+    50% { transform: rotate(6deg); }
+    75% { transform: rotate(-3deg); }
+    100% { transform: rotate(0); }
+}
+
+.nav {
+    background: var(--bg-beige);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 15px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary-teal);
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+
+@media (max-width: 768px) {
+    .header {
+        grid-template-columns: 1fr;
+        row-gap: 15px;
+        text-align: center;
+    }
+
+    .search-container,
+    .header-icons {
+        justify-self: center;
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .header-icons {
+        justify-content: center;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+}
