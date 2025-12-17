@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 :root {
@@ -234,7 +236,7 @@ body {
 .hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height: 100vh;
+    height: 70vh;
     position: relative;
     overflow: hidden;
 }
@@ -380,15 +382,15 @@ body {
 
 .section {
     padding: 80px 40px;
+    background: var(--bg-beige);
 }
-
 
 .section-heading {
     text-align: center;
     font-size: 42px;
     font-weight: 300;
-    margin-bottom: 0px;
-    transform: translateY(-30px);
+    margin-bottom: 20px;
+    transform: translateY(-20px);
 }
 
 .section-heading.visible {
@@ -482,7 +484,7 @@ body {
 .product-image {
     position: relative;
     overflow: hidden;
-    aspect-ratio: 1;
+    height:80%
     background: #f5f5f5;
 }
 
@@ -591,7 +593,7 @@ body {
 }
 
 .scroll-card:hover{
-    transform: translateY(-6px);
+    transform: scale(1.09);
     box-shadow: 0 12px 24px rgba(0,0,0,0.1);
 }
 
@@ -614,7 +616,9 @@ body {
         transform: translateX(0);
     }
 }
-
+.special{
+    background:var(--bg-beige);
+}
 
 .gift-gallery {
     display: grid;
@@ -772,6 +776,7 @@ body {
 
 .nopad{
     padding: 60px 0px;
+    background: white;
 }
 
 .collection-grid {
@@ -837,12 +842,412 @@ body {
 
 
 
+.occasion-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.occasion-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: all 0.4s ease;
+}
+
+.occasion-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.occasion-image {
+    width: 100%;
+    height: 300px;
+    background: #f5f5f5;
+    overflow: hidden;
+}
+
+.occasion-image img {
+    
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.4s ease;
+}
+
+.occasion-card:hover .occasion-image img {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+.occasion-content {
+    padding: 30px;
+}
+
+.occasion-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--primary-teal);
+    margin-bottom: 10px;
+}
+
+.occasion-desc {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.eth{
+    background:white;
+}
+.brand-ethos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.ethos-image {
+    width: 100%;
+    height: 600px;
+    background: url('./images/Necklace.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+}
+
+.ethos-content {
+    padding: 40px;
+}
+
+.ethos-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+.ethos-heading {
+    font-size: 42px;
+    font-weight: 300;
+    margin-bottom: 30px;
+    line-height: 1.3;
+}
+
+.ethos-heading em {
+    font-style: italic;
+    font-family: Georgia, serif;
+}
+
+.ethos-text {
+    font-size: 16px;
+    color: var(--text-light);
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+
+.trust-section {
+    background: var(--bg-beige);
+    padding-top:30px;
+    
+}
+
+.trust-content {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 60px;
+    align-items: center;
+
+}
+
+.trust-image {
+    width: 100%;
+    height: 100%;
+    background: url('./images/diam.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    transform: translateX(-40px) translateY(80px);
+
+}
+
+.trust-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.trust-item {
+    text-align: center;
+    opacity: 100;
+    transform: scale(0) rotate(0deg);
+}
+
+.trust-item.visible {
+    animation: iconPop 0.6s forwards;
+}
+
+.trust-item:nth-child(1) { animation-delay: 0.1s; }
+.trust-item:nth-child(2) { animation-delay: 0.25s; }
+.trust-item:nth-child(3) { animation-delay: 0.4s; }
+.trust-item:nth-child(4) { animation-delay: 0.55s; }
+.trust-item:nth-child(5) { animation-delay: 0.7s; }
+.trust-item:nth-child(6) { animation-delay: 0.85s; }
+
+@keyframes iconPop {
+    from {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(360deg);
+    }
+}
+
+.trust-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 32px;
+    transition: all 0.3s ease;
+}
+
+.trust-item:hover .trust-icon {
+    transform: scale(1.05);
+}
+
+.trust-label {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+.testimonials {
+    background: white;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    background: white;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 25px;
+    transition: all 0.4s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.testimonial-image {
+    width: 100%;
+    height: 200px;
+    
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.stars {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.star {
+    color: var(--accent-gold);
+    opacity: 0;
+    transform: scale(0);
+}
+
+.testimonial-card.visible .star {
+    animation: starPop 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.testimonial-card.visible .star:nth-child(1) { animation-delay: 0.1s; }
+.testimonial-card.visible .star:nth-child(2) { animation-delay: 0.2s; }
+.testimonial-card.visible .star:nth-child(3) { animation-delay: 0.3s; }
+.testimonial-card.visible .star:nth-child(4) { animation-delay: 0.4s; }
+.testimonial-card.visible .star:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes starPop {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.testimonial-quote {
+    font-style: italic;
+    color: var(--primary-teal);
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.testimonial-text {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.testimonial-author {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+
+.footer {
+    background: var(--primary-teal);
+    color: white;
+    padding: 60px 40px 10px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 20px;
+}
+
+.footer-logo {
+    margin-bottom: 20px;
+    align-self: start;
+    display: flex;
+    gap:10px;
+}
+
+.footer-logo h2 {
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    
+}
+
+.footer-desc {
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.8);
+}
+
+.footer-column h4 {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-links a::before {
+    content: '→';
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: white;
+    transform: translateX(8px);
+}
+
+.footer-links a:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.copyright {
+    background: rgba(0,0,0,0.2);
+    border-radius: 8px;
+    padding: 20px 0px;
+    text-align: center;
+    font-size: 14px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--primary-teal);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+}
+
+.back-to-top:hover {
+    background: var(--light-teal);
+    transform: scale(1.1) rotate(180deg);
+}
+
+.product-card, .scroll-card, .collection-card, .testimonial-card {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
 
 
 @media (max-width: 1024px) {
-    .hero {
-        grid-template-columns: 1fr;
-    }
+    .hero,
     .promo-banners {
         grid-template-columns: 1fr;
     }
@@ -850,60 +1255,20 @@ body {
     .collection-grid {
         grid-template-columns: repeat(3, 1fr);
     }
+    
+    .brand-ethos,
+    .trust-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
 }
 
 @media (max-width: 768px) {
-
-    .hero h2 {
-        font-size: 36px;
-    }
-    
-    .hero-left {
-        padding: 40px 20px;
-    }
-    
-    .features-strip {
-        gap: 30px;
-        padding: 20px;
-    }
-    .section {
-        padding: 60px 20px;
-    }
-    
-    .section-heading {
-        font-size: 32px;
-    }
-    
-    .product-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    
-    .category-pills {
-        gap: 10px;
-        margin-bottom: 30px;
-    }
-    
-    .pill {
-        padding: 8px 20px;
-        font-size: 13px;
-    }
-
-    .hero h2 {
-        font-size: 36px;
-    }
-    
-    .hero-left {
-
-        height: 100vh;
-    }
-    .hero-right{
-        display: none;
-    }
-    .features-strip {
-        gap: 10px;
-        padding: 10px;
-    }
+  
     .header {
         display: flex;
         justify-content: space-between;
@@ -911,7 +1276,6 @@ body {
         padding: 15px 20px;
     }
     
-
     .search-container {
         display: none;
     }
@@ -921,10 +1285,8 @@ body {
         display: flex;
         align-items: center;
         gap: 8px;
-        
     }
     
-
     .logo h1 {
         font-size: 22px;
         letter-spacing: 1.5px;
@@ -950,40 +1312,226 @@ body {
         gap: 15px;
         padding: 12px 20px;
     }
+    
+
+    .hero h2 {
+        font-size: 36px;
+    }
+    
+    .hero-left {
+        height: 100vh;
+        padding: 40px 20px;
+    }
+    
+    .hero-right {
+        display: none;
+    }
+    
+    .features-strip {
+        gap: 10px;
+        padding: 10px;
+    }
+    
+  
+    .section {
+        padding: 60px 20px;
+    }
+    
+    .section-heading {
+        font-size: 32px;
+    }
+    
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .category-pills {
+        gap: 10px;
+        margin-bottom: 30px;
+    }
+    
+    .pill {
+        padding: 8px 20px;
+        font-size: 13px;
+    }
+    
+ 
     .gallery-btn {
         display: none;
     }
-
+    
+    
     .promo-banners {
         grid-template-columns: 1fr;
     }
-
+    
     .promo-banner {
         padding: 50px 30px;
         min-height: 350px;
     }
-
+    
     .promo-banner h3 {
         font-size: 28px;
         margin-bottom: 15px;
     }
-
+    
     .promo-btn {
         padding: 10px 20px;
         font-size: 13px;
     }
-
+    
 
     .collection-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
     }
-
+    
     .collection-name {
         font-size: 14px;
     }
-}
+    
 
+    .occasion-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .occasion-image {
+        height: 250px;
+    }
+    
+    .occasion-content {
+        padding: 20px;
+    }
+    
+    .occasion-label {
+        font-size: 11px;
+    }
+    
+    .occasion-desc {
+        font-size: 13px;
+    }
+    
+  
+    .brand-ethos {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .ethos-image {
+        height: 400px;
+        order: 2;
+    }
+    
+    .ethos-content {
+        padding: 0;
+        order: 1;
+    }
+    
+    .ethos-heading {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+    
+    .ethos-text {
+        font-size: 14px;
+    }
+    
+ 
+    .trust-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .trust-image {
+        height: 350px;
+        order: 2;
+        transform: inherit;
+    }
+    
+    .trust-grid {
+        gap: 20px;
+        order: 1;
+    }
+    
+    .trust-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 28px;
+    }
+    
+    .trust-label {
+        font-size: 13px;
+    }
+    
+    
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .testimonial-card {
+        padding: 20px;
+    }
+    
+    .testimonial-image {
+        height: 300px;
+    }
+    
+    .testimonial-quote {
+        font-size: 16px;
+    }
+    
+    .testimonial-text {
+        font-size: 13px;
+    }
+    
+    .testimonial-author {
+        font-size: 13px;
+    }
+    
+    
+    .footer {
+        padding: 40px 20px 0;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+    
+    .footer-logo h2 {
+        font-size: 20px;
+    }
+    
+    .footer-desc {
+        font-size: 13px;
+    }
+    
+    .footer-column h4 {
+        font-size: 13px;
+        margin-bottom: 15px;
+    }
+    
+    .footer-links a {
+        font-size: 13px;
+    }
+    
+    .copyright {
+        padding: 15px 0;
+        font-size: 12px;
+    }
+    
+    
+    .back-to-top {
+        width: 45px;
+        height: 45px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 20px;
+    }
+}
 
 @media (max-width: 480px) {
     .announcement-bar {
@@ -1027,6 +1575,7 @@ body {
         width: 20px;
         height: 20px;
     }
+    
     .collection-grid {
         grid-template-columns: 1fr;
     }
@@ -1034,7 +1583,8 @@ body {
     .promo-banner h3 {
         font-size: 24px;
     }
+    
+    .ethos-heading {
+        font-size: 26px;
+    }
 }
-
-
-
