@@ -242,7 +242,7 @@ body {
 }
 
 .hero-left {
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('./images/Hero-left.jpg');
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('./images/Hero-left.webp');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -260,7 +260,7 @@ body {
 }
 
 .hero-right {
-    background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), url('./images/Hero-right.png');
+    background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), url('./images/Hero-right.webp');
     background-size: cover;
     background-position: center;
 }
@@ -628,7 +628,7 @@ body {
 }
 
 .gallery-large {
-    background: url('./images/necklace-one.png');
+    background: url('./images/necklace-one.webp');
     background-size: cover;
     background-position: center;
     border-radius: 8px;
@@ -645,7 +645,7 @@ body {
     border-radius: 8px;
     overflow: hidden;
     aspect-ratio: 1;
-    background: url('./images/rings.jpg');
+    background: url('./images/rings.webp');
     background-size: cover;
     transition: all 0.4s ease;
 }
@@ -726,13 +726,13 @@ body {
 }
 
 .promo-banner-left {
-    background: url('./images/necklace-3.jpg');
+    background: url('./images/necklace-3.webp');
     background-size: cover;
     background-position: center;
 }
 
 .promo-banner-right {
-    background: url('./images/jewel.jpg');
+    background: url('./images/jewel.webp');
     background-size: cover;
     background-position: center;
 }
@@ -914,7 +914,7 @@ body {
 .ethos-image {
     width: 100%;
     height: 600px;
-    background: url('./images/Necklace.jpg');
+    background: url('./images/Necklace.webp');
     background-size: cover;
     background-position: center;
     border-radius: 8px;
@@ -969,7 +969,7 @@ body {
 .trust-image {
     width: 100%;
     height: 100%;
-    background: url('./images/diam.png');
+    background: url('./images/diam.webp');
     background-size: cover;
     background-position: center;
     border-radius: 8px;
